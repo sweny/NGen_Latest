@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>My Dashboard, get similar movie,d3.js</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" href="movie-network.css" />
+<script>
+	// Sniff MSIE version
+	// http://james.padolsey.com/javascript/detect-ie-in-js-using-conditional-comments/
+	var ie = (function() {
+		var undef, v = 3, div = document.createElement('div'), all = div
+				.getElementsByTagName('i');
+		while (div.innerHTML = '<!--[if gt IE ' + (++v)
+				+ ']><i></i><![endif]-->', all[0])
+			;
+		return v > 4 ? v : undef;
+	}());
+
+	function takeAction() {
+		if (ie && ie < 9) {
+			D3notok();
+		} else {
+			// Load D3.js, and once loaded do our stuff
+			var head = document.getElementsByTagName('head')[0];
+			var script = document.createElement('script');
+			script.type = 'text/javascript';
+			script.src = "http://d3js.org/d3.v3.min.js";
+			script.addEventListener('load', D3ok, false);
+			script.onload = "D3ok();";
+			head.appendChild(script);
+		}
+	}
+</script>
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="jsonp.js"></script>
+<link rel="stylesheet" type="text/css" href="css/moviedetailstyle.css">
+<script src="jquery-2.1.1.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="moviedetails.js"></script>
+<style>
+body {
+	background-image: url(images/bb.jpg);
+}
+</style>
+</head>
+<body onload="takeAction();">
+
+	<div id="nocontent">
+		<h1>Sadly your browser is not compatible with this site</h1>
+
+		<div>
+			You can use <a href="http://www.google.com/chrome/">Google Chrome</a>,
+			<a href="http://www.mozilla.org/firefox">Mozilla Firefox</a> or <a
+				href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">Microsoft
+				Internet Explorer (v9 or above)</a>
+		</div>
+
+	</div>
+	<div id="menuF" class="default">
+		<div class="container">
+			<div class="row">
+				<div class="logo col-md-4">
+					<div>
+						<a href="#"> <img src="images/logo.jpg" height="92" width="92">
+						</a>
+					</div>
+				</div>
+				<div class="col-md-8">
+					<div class="navmenu" style="text-align: center;">
+						<ul id="menu">
+							<li class="active"><h4>
+									<a href="/index.html#home">Home</a>
+								</h4></li>
+							<li><h4>
+									<a href="/index.html#movie">Movie</a>
+								</h4></li>
+							<li><h4>
+									<a href="/index.html#tvshows">TV Shows</a>
+								</h4></li>
+							<li><h4>
+									<a href="/index.html#toprated">Top Rated</a>
+								</h4></li>
+							<li><h4>
+									<a href="dashboard.html">My Dashboard</a>
+								</h4></li>
+							<li class="last"><h4>
+									<a href="/index.html#contact">Contact</a>
+								</h4></li>
+							<!--li><a href="#features">Features</a></li-->
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="movieNetwork"></div>
+
+	<div id="sidepanel">
+		<div class="well well-sm">
+			<div id="title">
+
+				<a href="javascript:void(0);" onClick="zoomCall(0.5);"
+					style="pointer-events: all;">+</a> <a href="javascript:void(0);"
+					onClick="zoomCall(-0.5);" style="pointer-events: all;">-</a> <img
+					id="helpIcon" src="help-icon.png" title="Click for help"
+					onClick="toggleDiv('help');" />
+
+			</div>
+		</div>
+		<div id="help" class="panel_off">
+			<img src="close.png" style="float: right;"
+				onClick="toggleDiv('help');" />
+
+			<ul>
+				<li>Hover over a node to see the movie title, and to highlight
+					the movies related to it.</li>
+
+				<li>Click on a node to show movie details. It will open up a
+					side panel.</li>
+
+				<li>On the movie details panel, you can click on the <em>target</em>
+					icon to center the graph on that movie. And clicking on the link to
+					a related movie will move to that movie (in the graph and in the
+					panel)
+				</li>
+
+				<li>You can use you usual browser controls to zoom and pan over
+					the graph. If you zoom in when centred on a movie, the graph will
+					expand around it.</li>
+
+				<li>Above a certain zoom level, movie titles are automatically
+					displayed for all the nodes.</li>
+			</ul>
+		</div>
+
+		<div id="movieInfo" class="panel_off"></div>
+	</div>
+
+	<div id="faq" class="panel_off">
+		<div id="close_faq">
+			<img src="close.png" onClick="toggleDiv('faq');" />
+		</div>
+		<dl>
+
+
+
+			<dd>
+				<a href="https://github.com/mbostock/d3/wiki/Force-Layout">force-directed
+					graph layout</a> in <strong>D3.js</strong>.
+			</dd>
+			<dt>What do the graph elements mean?</dt>
+			<dd>
+			<dd>
+				The graph is heavily connected: there are connections between many
+				of the movies in the network (note that this is only a partial view
+				of the overall network: in the full graph there are many more
+				connections, and also to the movies that here appear to be at the
+				edges).<br /> There is a strong central cluster containing some of
+				the most important movies (it is so dense that it cannot be clearly
+				seen unless you zoom in). Some of them are deeply connected, check
+				for instance <em><a href="javascript:void(0);"
+					onclick="clearAndSelect(56);">Seven</a></em> or <em><a
+					href="javascript:void(0);" onclick="clearAndSelect(65);">Forrest
+						Gump</a></em>. Within that central cluster we can also identify thematic
+				subclusters, such as the <a href="javascript:void(0);"
+					onclick="clearAndSelect(52);">Tolkien saga</a>.<br /> Outside the
+				graph core we can also find other areas with semantic meaning (e.g.
+				the set of <em><a href="javascript:void(0);"
+					onclick="clearAndSelect(165);">Star Wars</a></em> movies, or a group of
+				classic <a href="javascript:void(0);" onclick="clearAndSelect(61);">Hitchcock
+					thrillers</a>). There is also a small <a href="javascript:void(0);"
+					onclick="clearAndSelect(20);">Western</a> cluster (mostly Clint
+				Eastwood movies) and a <a href="javascript:void(0);"
+					onclick="clearAndSelect(119);">Tarantino</a> group.<br /> As a
+				curiosity, there seems to be an exaggerated importance given to
+				movies that are seemingly minor, but that share title with more
+				significant ones (i.e. there is a second <em>Godfather</em> or a
+				second <em>Gladiator</em> in the graph, try to spot them!). These
+				might stem from user confusion when selecting the movie they
+				actually wanted.
+			</dd>
+		</dl>
+	</div>
+
+	<script src="movie-network.js"></script>
+</body>
+</html>

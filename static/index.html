@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Next Gen Entertainment Network</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.css">
+<link rel='stylesheet' id='camera-css' href='css/camera.css'
+	type='text/css' media='all'>
+
+<link rel="stylesheet" type="text/css" href="css/slicknav.css">
+<link rel="stylesheet" href="css/prettyPhoto.css" type="text/css"
+	media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+
+<link href='css/fonts.css' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="js/jquery.mobile.customized.min.js"></script>
+<script type="text/javascript" src="js/jquery.easing.1.3.js"></script>
+<script type="text/javascript" src="js/camera.min.js"></script>
+<script type="text/javascript" src="js/myscript.js"></script>
+<script src="js/sorting.js" type="text/javascript"></script>
+<script src="js/jquery.isotope.js" type="text/javascript"></script>
+<script type="text/javascript" src="client.js"></script>
+<!--script type="text/javascript" src="js/jquery.nav.js"></script-->
+
+
+<script>
+	jQuery(function() {
+		jQuery('#camera_wrap_1').camera({
+			transPeriod : 500,
+			time : 3000,
+			height : '490px',
+			thumbnails : false,
+			pagination : true,
+			playPause : false,
+			loader : false,
+			navigation : false,
+			hover : false
+		});
+	});
+</script>
+
+</head>
+
+<!--home start-->
+
+<div id="home">
+	<div class="headerLine">
+		<div id="menuF" class="default">
+			<div class="container">
+				<div class="row">
+					<div class="logo col-md-4">
+						<div>
+							<a href="#"> <img src="images/logo.jpg" height="92"
+								width="92">
+							</a>
+						</div>
+					</div>
+					<div class="col-md-8">
+						<div class="navmenu" style="text-align: center;">
+							<ul id="menu">
+								<li class="active"><h4>
+										<a href="#home">Home</a>
+									</h4></li>
+								<li><h4>
+										<a href="#movie">Movie</a>
+									</h4></li>
+								<li><h4>
+										<a href="#tvshows">TV Shows</a>
+									</h4></li>
+								<li><h4>
+										<a href="#toprated">Top Rated</a>
+									</h4></li>
+								<li><h4>
+										<a href="dashboard.html">My Dashboard</a>
+									</h4></li>
+								<li class="last"><h4>
+										<a href="#contact">Contact</a>
+									</h4></li>
+								<!--li><a href="#features">Features</a></li-->
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row wrap">
+				<div class="col-md-12 gallery">
+					<div class="camera_wrap camera_white_skin" id="camera_wrap_1">
+						<div data-thumb="" data-src="images/slides/blank.gif">
+							<div class="img-responsive camera_caption fadeFromBottom">
+								<h2>Live.</h2>
+							</div>
+						</div>
+						<div data-thumb="" data-src="images/slides/blank.gif">
+							<div class="img-responsive camera_caption fadeFromBottom">
+								<h2>Laugh.</h2>
+							</div>
+						</div>
+						<div data-thumb="" data-src="images/slides/blank.gif">
+							<div class="img-responsive camera_caption fadeFromBottom">
+								<h2>Love.</h2>
+							</div>
+						</div>
+					</div>
+					<!-- #camera_wrap_1 -->
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</div>
+<!--about start-->
+<div id="genre">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12" style="text-align: center;">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Search"
+						name="search-item" id="search-item">
+					<div class="input-group-btn">
+						<button class="btn btn-default" type="submit"
+							onClick="searchItem()">
+							<i class="glyphicon glyphicon-search"></i>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="options" class="col-md-12" style="text-align: center;">
+			<ul id="filter" class="option-set" data-option-key="filter">
+				<li><select name="select-search" id="select-search">
+						<option value="All">Search All</option>
+						<option value="Movies">Movies</option>
+						<option value="TVShow">TV Show</option>
+				</select></li>
+				<li><button type="submit" onClick="backToCollection();" data-option-value=".text_styles">Back
+						to my collection</button></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<!--project start-->
+<div id="project">
+	<div id="movie">
+		<div class="line4">
+			<div class="container">
+				<div class="row Ama">
+					<div class="col-md-12">
+						<h3>Movies</h3>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="mycollection" class="portfolio_block columns3   pretty"
+			data-animated="fadeIn" style="margin-left: 5%;"></div>
+	</div>
+	<!--news start-->
+	<div id="tvshows">
+		<div class="line4">
+			<div class="container">
+				<div class="row Ama">
+					<div class="col-md-12">
+						<h3>TV Shows</h3>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="myTvShows" class="portfolio_block columns3   pretty"
+			data-animated="fadeIn" style="margin-left: 5%;"></div>
+	</div>
+	<div id="toprated">
+		<div class="line4">
+			<div class="container">
+				<div class="row Ama">
+					<div class="col-md-12">
+						<h3>Top Rated</h3>
+						<p>Whats HOTTT !
+						<p>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div id="toprated" class="portfolio_block columns3   pretty"
+			data-animated="fadeIn" style="margin-left: 5%;"></div>
+
+	</div>
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 wwa">
+				<span name="about"></span>
+				<h3>Who We Are? Meet Our Team!</h3>
+				<h4>We listen, we discuss, we advise and develop. We love to
+					learn and use the latest technologies.</h4>
+			</div>
+		</div>
+	</div>
+	<div class="container" id="contact">
+		<div class="row team">
+			<div class="col-md-3 b1">
+				<img class="img-responsive" src="images/swney.jpg" height="100"
+					width="100">
+				<h4>Sweny Zaveri</h4>
+			</div>
+
+
+			<div class="col-md-3">
+				<img class="img-responsive" src="images/neema.jpg" height="100"
+					width="100">
+				<h4>Neema Bhavsar</h4>
+
+			</div>
+
+
+			<div class="col-md-3 b3">
+				<img class="img-responsive" src="images/gayathri.jpg" height="100"
+					width="100">
+				<h4>Gayathri Srinivasan</h4>
+			</div>
+			<div class="col-md-3 b3">
+				<img class="img-responsive" src="images/gaurav.jpg" height="100"
+					width="100">
+				<h4>Gaurav Kesarwani</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="lineBlack">
+		<div class="container">
+			<div class="row downLine">
+
+				<div class="col-md-6 text-left copy">
+					<p>Copyright &copy; 2014 Bay Hackers. All Rights Reserved.</p>
+				</div>
+				<div class="col-md-6 text-right dm">
+					<ul id="downMenu">
+						<li class="active"><a href="#home">Home</a></li>
+						<li><a href="#movie">Movie</a></li>
+						<li><a href="#tvshows">TV Shows</a></li>
+						<li><a href="#toprated">Top Rated</a></li>
+						<li><a href="dashboard.html">My Dashboard</a></li>
+						<li class="last"><a href="#contact">Contact</a></li>
+						<!--li><a href="#features">Features</a></li-->
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<script src="js/jquery.prettyPhoto.js" type="text/javascript"
+	charset="utf-8"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.slicknav.js"></script>
+<script>
+	$(document)
+			.ready(
+					function() {
+						$(".bhide").click(function() {
+							$(".hideObj").slideDown();
+							$(this).hide(); //.attr()
+							return false;
+						});
+						$(".bhide2").click(function() {
+							$(".container.hideObj2").slideDown();
+							$(this).hide(); // .attr()
+							return false;
+						});
+
+						$('.heart').mouseover(
+								function() {
+									$(this).find('i').removeClass('fa-heart-o')
+											.addClass('fa-heart');
+								}).mouseout(
+								function() {
+									$(this).find('i').removeClass('fa-heart')
+											.addClass('fa-heart-o');
+								});
+
+						function sdf_FTS(_number, _decimal, _separator) {
+							var decimal = (typeof (_decimal) != 'undefined') ? _decimal
+									: 2;
+							var separator = (typeof (_separator) != 'undefined') ? _separator
+									: '';
+							var r = parseFloat(_number)
+							var exp10 = Math.pow(10, decimal);
+							r = Math.round(r * exp10) / exp10;
+							rr = Number(r).toFixed(decimal).toString().split(
+									'.');
+							b = rr[0].replace(
+									/(\d{1,3}(?=(\d{3})+(?:\.\d|\b)))/g, "\$1"
+											+ separator);
+							r = (rr[1] ? b + '.' + rr[1] : b);
+
+							return r;
+						}
+
+						setTimeout(function() {
+							$('#counter').text('0');
+							$('#counter1').text('0');
+							$('#counter2').text('0');
+							setInterval(function() {
+
+								var curval = parseInt($('#counter').text());
+								var curval1 = parseInt($('#counter1').text()
+										.replace(' ', ''));
+								var curval2 = parseInt($('#counter2').text());
+								if (curval <= 707) {
+									$('#counter').text(curval + 1);
+								}
+								if (curval1 <= 12280) {
+									$('#counter1').text(
+											sdf_FTS((curval1 + 20), 0, ' '));
+								}
+								if (curval2 <= 245) {
+									$('#counter2').text(curval2 + 1);
+								}
+							}, 2);
+
+						}, 500);
+					});
+</script>
+<script type="text/javascript">
+	jQuery(document).ready(function() {
+		jQuery('#menu').slicknav();
+
+	});
+</script>
+
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+
+				var $menu = $("#menuF");
+
+				$(window).scroll(
+						function() {
+							if ($(this).scrollTop() > 100
+									&& $menu.hasClass("default")) {
+								$menu.fadeOut('fast', function() {
+									$(this).removeClass("default").addClass(
+											"fixed transbg").fadeIn('fast');
+								});
+							} else if ($(this).scrollTop() <= 100
+									&& $menu.hasClass("fixed")) {
+								$menu.fadeOut('fast',
+										function() {
+											$(this)
+													.removeClass(
+															"fixed transbg")
+													.addClass("default")
+													.fadeIn('fast');
+										});
+							}
+						});
+			});
+	//jQuery
+</script>
+<script>
+	/*menu*/
+	function calculateScroll() {
+		var contentTop = [];
+		var contentBottom = [];
+		var winTop = $(window).scrollTop();
+		var rangeTop = 200;
+		var rangeBottom = 500;
+		$('.navmenu').find('a').each(
+				function() {
+					contentTop.push($($(this).attr('href')).offset().top);
+					contentBottom.push($($(this).attr('href')).offset().top
+							+ $($(this).attr('href')).height());
+				})
+		$.each(contentTop,
+				function(i) {
+					if (winTop > contentTop[i] - rangeTop
+							&& winTop < contentBottom[i] - rangeBottom) {
+						$('.navmenu li').removeClass('active').eq(i).addClass(
+								'active');
+					}
+				})
+	};
+
+	$(document).ready(function() {
+		calculateScroll();
+		$(window).scroll(function(event) {
+			calculateScroll();
+		});
+		$('.navmenu ul li a').click(function() {
+			$('html, body').animate({
+				scrollTop : $(this.hash).offset().top - 80
+			}, 800);
+			return false;
+		});
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+	jQuery(document).ready(function() {
+		jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({
+			animation_speed : 'normal',
+			theme : 'light_square',
+			slideshow : 3000,
+			autoplay_slideshow : true,
+			social_tools : ''
+		});
+
+	});
+</script>
+</body>
+
+</html>

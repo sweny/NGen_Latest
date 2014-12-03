@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<title>Movie Detail</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="css/moviedetailstyle.css">
+		
+		<script src="jquery-2.1.1.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="tvshows.js"></script>
+		<style>
+			body {
+				background-image: url(images/bb.jpg);
+			}
+		</style>
+	</head>
+	<body onload="getTvShowsEpisodesList();">
+	<div id="menuF" class="default" >
+				<div class="container">
+					<div class="row">
+						<div class="logo col-md-4">
+							<div>
+								<a href="#"><figure> <img src="images/logo.jpg" height="92" width="92"></figure>
+								</a>
+							</div>
+						</div>
+						<div class="col-md-8">
+							<div class="navmenu" style="text-align: center;">
+								<ul id="menu" >
+									<li class="active"><h4><a href="/index.html#home">Home</a></h4></li>
+									<li><h4><a href="/index.html#movie" >Movie</a></h4></li>
+									<li><h4><a href="/index.html#tvshows" >TV Shows</a></h4></li>
+									<li><h4><a href="/index.html#toprated" >Top Rated</a></h4></li>									
+									<li class="last"><h4><a href="/index.html#contact" >Contact</a></h4></li>
+									<!--li><a href="#features">Features</a></li-->
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	<div class="container">
+			<div class="row news" style="margin-left:-20%">
+				<div class="col-xs-4" >
+					<img id ="tvSeasonPoster" class="img-responsive picsGall" src="" />	
+					
+				</div>
+				<div class="col-xs-8 ">
+					<h3 id="tvSeasonName"> </h3>
+					<div class="row news" style="margin-top:0px;">
+				<div class="col-md-12">
+					<p id="tvSeasonOverview">
+						
+					</p>
+				</div>
+					<br>
+					<h3>
+						<div class="col-xs-6" >
+						<h2>Season Air Date</h2><p id="tvSeasonAirDate"></p>
+						</div>
+							
+					</h3>					
+						
+				</div>		
+		</div>
+				
+			</div>
+		
+			
+		</div>
+		<div id="tvEpisodesList" class="portfolio_block columns3   pretty"
+					data-animated="fadeIn" style="margin-left:30%;">
+		</div>
+	</body>	
+</html>

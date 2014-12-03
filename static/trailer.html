@@ -1,0 +1,33 @@
+
+<html lang="en">
+  <head>
+		<title>Trailer</title>
+		
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+		<script type="text/javascript" src="client.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/moviedetailstyle.css">
+		<style>
+			body {
+				background-image: url(images/bb.jpg);
+			}
+		</style>
+		
+	</head>
+	<body onLoad = "getMovieTrailer();">
+		
+		<iframe id ="movieTrailer" style="margin-left:10%" width="80%" height="100%"  frameborder="0" allowfullscreen></iframe>
+		<div style="margin-left:45%" >
+				<a href="#" id="movieLink" class="myButton">Play Movie</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<a href="#" id="backLink"  class="myButton1">Back</a>
+				</div>
+				<script>
+			var id = window.location.href.split("#")[1];
+			var url = "/moviedetails.html#" + id;
+			var movie_url = "/movie.html#" + id;
+			console.log("url:"+url);
+			$("#backLink").attr('href',url);
+			$("#movieLink").attr('href',movie_url);
+		</script>
+	</body>	
+	
+</html>
