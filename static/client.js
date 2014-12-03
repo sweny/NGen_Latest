@@ -196,7 +196,6 @@ function searchMovies(){
 
 	$.get(url,function(data){
 		var movies = JSON.parse(data);
-		alert("Inside Movies!")
 		console.log("Movie Data: "+movies);
 		movies = movies.movies;
 		if (movies.length > 0){
