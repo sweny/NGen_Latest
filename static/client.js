@@ -147,7 +147,7 @@ function searchAll(){
 		if (movies.length > 0){			
 			for (var i = 0 ; i<movies.length ; i++) {
 				var div = "<div class=\"element col-sm-4   gall branding\">"
-					div += "<a class=\"plS\" href=/movie_details.html#"+movies[i].id+ " rel=\"prettyPhoto[gallery2]\"> "+
+					div += "<a class=\"plS\" href=/moviedetails.html#"+movies[i].id+ " rel=\"prettyPhoto[gallery2]\"> "+
 					"<img id=\"i0\"	class=\"img-responsive picsGall \""+
 					"src=http://image.tmdb.org/t/p/w300"+movies[i].poster_path + " alt=\""+movies[i].original_title +"\" />"
 					+"</a>"
@@ -201,7 +201,7 @@ function searchMovies(){
 		if (movies.length > 0){
 			for (var i = 0 ; i<movies.length ; i++) {
 				var div = "<div class=\"element col-sm-4   gall branding\">"
-					div += "<a class=\"plS\" href=/movie_details.html#"+movies[i].id+ " rel=\"prettyPhoto[gallery2]\"> "+
+					div += "<a class=\"plS\" href=/moviedetails.html#"+movies[i].id+ " rel=\"prettyPhoto[gallery2]\"> "+
 					"<img id=\"i0\"	class=\"img-responsive picsGall \""+
 					"src=http://image.tmdb.org/t/p/w300"+movies[i].poster_path + " alt=\""+movies[i].original_title +"\" />"
 					+"</a>"
