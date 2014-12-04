@@ -272,6 +272,8 @@ function searchItem() {
 }
 
 function backToCollection(){
+	$("#mycollection").html("");
+	$("#myTvShows").html("");
 	getAllGenre();
 	getMovies();
 	getTopRated();
